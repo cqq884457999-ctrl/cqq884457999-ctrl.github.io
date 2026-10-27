@@ -11,8 +11,15 @@ BUILD_DIR="$REPO_DIR/public"
 SITE_URL="https://cqq884457999-ctrl.github.io/"
 
 if [ -z "${GH_TOKEN:-}" ]; then
-    echo "错误: 需要设置 GH_TOKEN 环境变量" >&2
-    echo "  export GH_TOKEN=github_pat_xxx" >&2
+    TOKEN_FILE="$REPO_DIR/../.gh-token"
+    if [ -f "$TOKEN_FILE" ]; then
+        GH_TOKEN="$(tr -d '\r\n' < "$TOKEN_FILE")"
+    fi
+fi
+
+if [ -z "${GH_TOKEN:-}" ]; then
+    echo "错误: 未找到 GitHub 令牌" >&2
+    echo "  请把 token 写入 $(dirname "$REPO_DIR")/.gh-token，或设置 GH_TOKEN 环境变量" >&2
     exit 1
 fi
 
