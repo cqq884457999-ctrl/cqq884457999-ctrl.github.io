@@ -1,0 +1,65 @@
+baseURL = "https://cqq884457999-ctrl.github.io/"
+defaultContentLanguage = "zh-cn"
+locale = "zh-cn"
+title = "常清清的笔记"
+theme = "hugo-theme-stack"
+
+# 中文段落、摘要、字数统计需要开启
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+enableEmoji = true
+capitalizeListTitles = false
+
+[pagination]
+    pagerSize = 8
+
+[permalinks]
+    post = "/p/:slug/"
+    page = "/:slug/"
+
+[taxonomies]
+    category = "categories"
+    tag = "tags"
+
+[params]
+    mainSections = ["post"]
+    rssFullContent = true
+    favicon = "/img/favicon.svg"
+    dateFormat = { published = "2006-01-02", lastUpdated = "2006-01-02" }
+
+    [params.footer]
+        since = 2026
+
+    [params.sidebar]
+        emoji = "📝"
+        subtitle = "亚马逊运营 / 工作方法与思考"
+        avatar = "/img/avatar.svg"
+
+    [params.article]
+        math = false
+        toc = true
+        readingTime = true
+        license = { enabled = false }
+        [params.article.headingAnchor]
+            enabled = true
+            icon = "#"
+        [params.article.image]
+            enabled = true
+            caption = true
+
+    [params.widgets]
+        homepage = [
+            { type = "search" },
+            { type = "archives", params = { limit = 8 } },
+            { type = "categories", params = { limit = 10 } },
+            { type = "tag-cloud", params = { limit = 20 } },
+        ]
+        page = [{ type = "toc" }]
+
+    [params.comments]
+        enabled = false
+
+    [params.colorScheme]
+        toggle = true
+        default = "auto"
